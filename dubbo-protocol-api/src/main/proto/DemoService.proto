@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.suns";
+option java_outer_classname = "DemoProto";
+
+message RequestData{
+  string name = 1;
+}
+
+message ResponseData{
+  string result = 1;
+}
+
+service DemoService{
+  rpc demo(RequestData) returns (ResponseData);
+}

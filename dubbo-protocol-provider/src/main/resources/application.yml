@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: DUBBO-PROTOCOL-PROVIDER
+
+dubbo:
+  protocols:
+    dubbo:
+      name: dubbo
+      port: -1
+#    triple:
+#      name: tri
+#      port: -1
+  application:
+    name: dubbo-protocol-provider
+#    register-mode: instance #instance 注册中心存储结构分类 接口和应用  all 默认值 同时支持   instance interface
+#    metadata-type: remote
+#  registry:
+#    address: zookeeper://127.0.0.1:2181
+  registries:
+    beijing:
+      address: zookeeper://127.0.0.1:2181
+      default: true
+    shanghai:
+      address: zookeeper://127.0.0.1:2181
+# nacos使用group 和namespace
+#    address: nacos://127.0.0.1:8848
+#    parameters:
+#      namespace: d8aa3f65-3b98-49bb-a5cf-da42fb0ed078
+#    group: dev_group
+#  metadata-report:
+#    address: zookeeper://127.0.0.1:2181
+
+#dubbo:
+#  protocol:
+#    name: rest
+#    port: 9001
+#    server: tomcat
+#    contextpath: suns
+#  registry:
+#    address: zookeeper://127.0.0.1:2181
+#
+#server:
+#dubbo:
+#  protocol:
+#    name: grpc
+#    port: -1
+#  registry:
+#    address: zookeeper://127.0.0.1:2181
+#  port: 8081
