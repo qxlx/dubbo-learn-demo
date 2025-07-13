@@ -1,7 +1,17 @@
 spring:
   application:
     name: DUBBO-PROTOCOL-PROVIDER
-
+#  熔断配置
+resilience4j:
+  circuitbreaker:
+    instances:
+      highPayOrderService:
+        slidingWindowSize: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 2
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
 dubbo:
   protocols:
     dubbo:

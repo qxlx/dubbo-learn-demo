@@ -8,4 +8,5 @@ public interface PayOrderService {
 
     boolean payOrder(String orderId);
 
+    String highPayOrder(boolean flag);
 }

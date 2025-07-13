@@ -1,5 +1,6 @@
 package com.suns.test;
 
+import com.suns.service.PayOrderService;
 import com.suns.service.UserService;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.junit.jupiter.api.Test;
@@ -18,6 +19,22 @@ public class TestDubbo {
         boolean ret = userService.login("xiaohei", "123456");
         System.out.println("ret = " + ret);
     }
+
+    @DubboReference(providedBy = "dubbo-protocol-provider")
+    private PayOrderService payOrderService;
+
+    @Test
+    public void test2() {
+        for (int i = 0; i < 7; i++) {
+            try {
+                String s = payOrderService.highPayOrder(true);
+                System.out.println("currt:"+i+"\tret = " + s);
+            } catch (Exception e) {
+                System.out.println("error:"+i+"\tret = " + e.getMessage());
+            }
+        }
+    }
+
 
 //    @DubboReference(protocol = "rest")
 //    private OrderService orderService;
