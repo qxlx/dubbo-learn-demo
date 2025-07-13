@@ -14,14 +14,14 @@ dubbo:
     name: dubbo-protocol-provider
 #    register-mode: instance #instance 注册中心存储结构分类 接口和应用  all 默认值 同时支持   instance interface
 #    metadata-type: remote
-#  registry:
-#    address: zookeeper://127.0.0.1:2181
-  registries:
-    beijing:
-      address: zookeeper://127.0.0.1:2181
-      default: true
-    shanghai:
-      address: zookeeper://127.0.0.1:2181
+  registry:
+    address: zookeeper://127.0.0.1:2181
+#  registries:
+#    beijing:
+#      address: zookeeper://127.0.0.1:2181
+#      default: true
+#    shanghai:
+#      address: zookeeper://127.0.0.1:2181
 # nacos使用group 和namespace
 #    address: nacos://127.0.0.1:8848
 #    parameters:
