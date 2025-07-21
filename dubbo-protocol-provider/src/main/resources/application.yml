@@ -13,10 +13,15 @@ resilience4j:
         minimumNumberOfCalls: 5
         automaticTransitionFromOpenToHalfOpenEnabled: true
 dubbo:
-  protocols:
-    dubbo:
-      name: dubbo
-      port: -1
+  protocol:
+    port: ${port}
+    dispatcher: all
+    threadpool: fixed
+    threadname: qxlx
+    queues: 5
+    threads: 100
+  #    dubbo:
+#      name: dubbo
 #    triple:
 #      name: tri
 #      port: -1

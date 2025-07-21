@@ -3,6 +3,7 @@ package com.suns.test;
 import com.suns.service.PayOrderService;
 import com.suns.service.UserService;
 import org.apache.dubbo.config.annotation.DubboReference;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -10,14 +11,19 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class TestDubbo {
 
     // 设置对应的应用
-    @DubboReference(providedBy = "dubbo-protocol-provider")
+//    @DubboReference(providedBy = "dubbo-protocol-provider",group = "userCache",version = "1.0.0")
+//    @DubboReference(loadbalance = LoadbalanceRules.RANDOM,cluster = ClusterRules.FAIL_SAFE, timeout = 1000)
+    @DubboReference(filter = "activeLimt",actives = 5)
     private UserService userService;
 
 
-    @Test
+//    @Test
+    @RepeatedTest(6)
+
     public void test1() {
-        boolean ret = userService.login("xiaohei", "123456");
+        String ret = userService.login("xiaohei", "123456");
         System.out.println("ret = " + ret);
+
     }
 
     @DubboReference(providedBy = "dubbo-protocol-provider")
