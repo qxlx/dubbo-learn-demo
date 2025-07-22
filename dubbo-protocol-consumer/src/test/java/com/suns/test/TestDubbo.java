@@ -16,10 +16,8 @@ public class TestDubbo {
     @DubboReference(filter = "activeLimt",actives = 5)
     private UserService userService;
 
-
 //    @Test
     @RepeatedTest(6)
-
     public void test1() {
         String ret = userService.login("xiaohei", "123456");
         System.out.println("ret = " + ret);
